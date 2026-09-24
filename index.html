@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>EN ESENCIA · Adultas en proceso. Sin filtros.</title>
+  <meta name="description" content="EN ESENCIA es un podcast de conversaciones sobre quiénes somos mientras intentamos descubrir quién queremos ser. No vas tarde. Vas a tu tiempo.">
+  <meta name="theme-color" content="#F8F7F4">
+  <meta property="og:title" content="EN ESENCIA · Adultas en proceso. Sin filtros.">
+  <meta property="og:description" content="No vas tarde. Vas a tu tiempo.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&family=Reenie+Beanie&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <!-- ================= CABECERA ================= -->
+  <header class="cabecera">
+    <a class="cabecera-marca" href="#inicio" aria-label="EN ESENCIA, volver al inicio">EN ESENCIA</a>
+    <div class="cabecera-acciones">
+      <a class="cabecera-escuchar" href="#ultimo">Escuchar</a>
+      <button class="boton-menu" type="button" aria-expanded="false" aria-controls="menu">Menú</button>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" hidden>
+    <nav aria-label="Principal">
+      <ul class="menu-lista">
+        <li><a href="#ultimo">El último episodio</a></li>
+        <li><a href="#episodios">Todos los episodios</a></li>
+        <li><a href="#personas">Las personas</a></li>
+        <li><a href="#sobre-mi">Quién está detrás</a></li>
+        <li><a href="#preguntas">Tus preguntas</a></li>
+        <li><a href="#carta">La carta de los domingos</a></li>
+        <li><a href="#faq">Preguntas frecuentes</a></li>
+      </ul>
+    </nav>
+    <p class="menu-pie">No vas tarde.</p>
+  </div>
+
+  <main id="contenido">
+
+    <!-- ================= 1. HERO ================= -->
+    <section class="hero" id="inicio" aria-labelledby="titulo-marca">
+      <div class="hero-pin">
+        <div class="hero-cabeza">
+          <h1 id="titulo-marca" class="hero-marca">EN ESENCIA</h1>
+          <p class="hero-tagline">Adultas en proceso.<br>Sin filtros.</p>
+        </div>
+
+        <p class="hero-sub">Conversaciones sobre quiénes somos mientras intentamos descubrir quién queremos ser.</p>
+
+        <div class="edades" aria-hidden="true">
+          <span class="edad"><span class="edad-num">27</span></span>
+          <span class="edad"><span class="edad-num">28</span></span>
+          <span class="edad"><span class="edad-num">29</span></span>
+          <span class="edad"><span class="edad-num">30</span></span>
+        </div>
+        <p class="sr-only">27, 28, 29, 30: edades tachadas una a una.</p>
+
+        <p class="claim">
+          <span class="claim-linea claim-1">NO VAS TARDE.</span>
+          <span class="claim-linea claim-2">VAS A TU TIEMPO.
+            <svg class="claim-subrayado" viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true">
+              <path pathLength="1" d="M3 12 C 60 7, 120 14, 180 9 S 270 6, 297 11" />
+            </svg>
+          </span>
+        </p>
+
+        <div class="hero-ctas">
+          <a class="boton" href="#ultimo">Escuchar el último episodio</a>
+          <a class="enlace-subrayado" href="#episodios">Ver todos los episodios</a>
+        </div>
+
+        <p class="hero-pista mano" aria-hidden="true">
+          sigue bajando
+          <svg viewBox="0 0 40 60" class="flecha"><path d="M20 4 C 17 20, 23 34, 19 52 M11 43 C 15 47, 17 50, 19 53 C 22 49, 25 46, 29 42"/></svg>
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= 2. MANIFIESTO ================= -->
+    <section class="manifiesto" id="manifiesto" aria-labelledby="titulo-manifiesto">
+      <h2 id="titulo-manifiesto" class="sr-only">Manifiesto</h2>
+      <svg class="manifiesto-orbita dibujo" viewBox="0 0 400 400" aria-hidden="true">
+        <path pathLength="1" d="M200 40 C 310 38, 372 120, 360 210 C 348 300, 270 362, 190 358 C 100 354, 36 282, 42 196 C 48 110, 118 50, 214 44" />
+        <circle cx="352" cy="170" r="5" />
+      </svg>
+
+      <blockquote class="manifiesto-cita">
+        <p>
+          <span class="linea revelar">Quizá no estás perdida.</span>
+          <span class="linea revelar">Quizá simplemente estás construyendo</span>
+          <span class="linea revelar">una vida que todavía no sabes explicar.</span>
+        </p>
+      </blockquote>
+
+      <div class="manifiesto-texto revelar">
+        <p>EN ESENCIA es un podcast de conversaciones con personas que están intentando descubrir quiénes son mientras construyen su vida.</p>
+        <p>Hablamos de trabajo, relaciones, decisiones, miedo, ambición y todas esas cosas que todavía no tenemos resueltas. Sin fórmulas y sin nadie que se haga la experta. Solo preguntas, escucha y alguna risa por el camino.</p>
+      </div>
+    </section>
+
+    <!-- ================= 3. ÚLTIMO EPISODIO ================= -->
+    <section class="ultimo" id="ultimo" aria-labelledby="titulo-ultimo">
+      <div class="ultimo-foto revelar">
+        <span class="ultimo-numero" id="ultimo-numero" aria-hidden="true"></span>
+        <img id="ultimo-img" src="" alt="" width="800" height="1000">
+        <p class="ultimo-nota mano" aria-hidden="true">
+          <svg viewBox="0 0 80 40" class="flecha-lado"><path d="M76 8 C 58 4, 30 10, 8 30 M8 30 C 10 24, 12 20, 13 16 M8 30 C 14 30, 18 30, 22 31"/></svg>
+          <span id="ultimo-anotacion"></span>
+        </p>
+      </div>
+
+      <div class="ultimo-texto">
+        <h2 id="titulo-ultimo" class="titulo-seccion revelar">El último episodio</h2>
+        <p class="ultimo-meta revelar" id="ultimo-meta"></p>
+        <h3 class="ultimo-titulo revelar" id="ultimo-titulo"></h3>
+        <p class="ultimo-desc revelar" id="ultimo-desc"></p>
+
+        <div class="reproductor revelar" id="reproductor">
+          <button class="boton" type="button" id="btn-play" aria-pressed="false">Escuchar</button>
+          <div class="linea-tiempo">
+            <label for="posicion" class="sr-only">Posición del episodio</label>
+            <input type="range" id="posicion" min="0" max="100" value="0" step="1">
+            <p class="tiempos"><span id="t-actual">0:00</span><span id="t-total">0:00</span></p>
+          </div>
+        </div>
+
+        <p class="plataformas revelar">
+          <span>También en</span>
+          <a class="enlace-subrayado" id="enlace-spotify" href="#" target="_blank" rel="noopener">Spotify</a>
+          <a class="enlace-subrayado" id="enlace-apple" href="#" target="_blank" rel="noopener">Apple Podcasts</a>
+          <a class="enlace-subrayado" id="enlace-youtube" href="#" target="_blank" rel="noopener">YouTube</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= 4. TODOS LOS EPISODIOS ================= -->
+    <section class="archivo" id="episodios" aria-labelledby="titulo-archivo">
+      <div class="archivo-cabeza">
+        <h2 id="titulo-archivo" class="titulo-seccion revelar">Todos los episodios</h2>
+        <p class="archivo-intro revelar" id="archivo-intro">Un archivo de conversaciones. Pasa por encima de cada una para escuchar una frase.</p>
+      </div>
+      <ol class="archivo-lista" id="archivo-lista" reversed></ol>
+    </section>
+
+    <!-- ================= 5. LAS PERSONAS ================= -->
+    <section class="personas" id="personas" aria-labelledby="titulo-personas">
+      <div class="personas-cabeza">
+        <h2 id="titulo-personas" class="titulo-seccion revelar">Las personas detrás de EN ESENCIA</h2>
+        <p class="revelar">Cada conversación me dejó algo. Esto es lo más parecido a un álbum que tengo.</p>
+      </div>
+      <ul class="tablero" id="tablero"></ul>
+      <p class="personas-pista mano" aria-hidden="true">desliza para ver más</p>
+    </section>
+
+    <!-- ================= 6. SOBRE MÍ ================= -->
+    <section class="sobre" id="sobre-mi" aria-labelledby="titulo-sobre">
+      <figure class="sobre-foto revelar">
+        <img src="img/irene.svg" alt="Irene Romera, creadora de EN ESENCIA, sentada junto a una ventana" width="800" height="1000" loading="lazy">
+        <figcaption class="mano">yo, preguntando otra vez</figcaption>
+      </figure>
+
+      <div class="sobre-texto">
+        <h2 id="titulo-sobre" class="titulo-seccion revelar">Quién está detrás de esto</h2>
+        <p class="sobre-frase revelar">
+          Tengo
+          <span class="circulado">27
+            <svg class="dibujo" viewBox="0 0 120 80" preserveAspectRatio="none" aria-hidden="true">
+              <path pathLength="1" d="M22 18 C 50 4, 104 8, 112 36 C 118 62, 70 76, 40 70 C 10 64, 4 38, 20 22 C 30 12, 52 10, 66 12" />
+            </svg>
+          </span>
+          años y tampoco tengo la vida resuelta.
+        </p>
+        <div class="sobre-parrafos revelar">
+          <p>Me llamo Irene. Durante un tiempo pensé que a mi edad ya tendría ciertas cosas claras: el trabajo, el amor, el sitio en el que quiero vivir. Y un día me pregunté si de verdad existe una edad correcta para llegar a todo eso.</p>
+          <p>EN ESENCIA nace de esa pregunta. No sé las respuestas, así que hago lo único que sé hacer: sentarme con personas que también están buscando su propio ritmo, preguntar y escuchar.</p>
+        </div>
+        <p class="firma mano revelar">Irene</p>
+      </div>
+    </section>
+
+    <!-- ================= 7. QUÉ ES ================= -->
+    <section class="que-es" id="que-es" aria-labelledby="titulo-que-es">
+      <h2 id="titulo-que-es" class="que-es-titulo revelar">Qué es EN ESENCIA</h2>
+      <ul class="palabras">
+        <li class="revelar">CONVERSACIONES.</li>
+        <li class="revelar">PERSONAS.</li>
+        <li class="revelar">DUDAS.</li>
+        <li class="revelar">CAMBIOS.</li>
+        <li class="revelar">CONTRADICCIONES.</li>
+        <li class="revelar palabra-ultima">COSAS QUE TODAVÍA NO SABEMOS.</li>
+      </ul>
+      <p class="que-es-cierre revelar">No tenemos las respuestas.<br>Tenemos preguntas.</p>
+    </section>
+
+    <!-- ================= 8. PREGUNTAS DE OYENTES ================= -->
+    <section class="preguntas" id="preguntas" aria-labelledby="titulo-preguntas">
+      <h2 id="titulo-preguntas" class="titulo-grande revelar">Tú preguntas.<br>Ellos responden.</h2>
+
+      <div class="preguntas-grid">
+        <ul class="preguntas-lista" id="preguntas-lista"></ul>
+
+        <div class="preguntas-form">
+          <h3 class="revelar">¿Tienes una pregunta?</h3>
+          <p class="mano preguntas-nota revelar">Puede que termine en un episodio.</p>
+
+          <form id="form-pregunta" class="formulario revelar" novalidate>
+            <div class="campos-fila">
+              <div class="campo">
+                <label for="p-nombre">Nombre <span class="opcional">(opcional)</span></label>
+                <input type="text" id="p-nombre" name="nombre" autocomplete="given-name" maxlength="40" aria-describedby="p-nombre-error">
+                <p class="error" id="p-nombre-error"></p>
+              </div>
+              <div class="campo campo-corto">
+                <label for="p-edad">Edad <span class="opcional">(opcional)</span></label>
+                <input type="number" id="p-edad" name="edad" inputmode="numeric" min="16" max="99" aria-describedby="p-edad-error">
+                <p class="error" id="p-edad-error"></p>
+              </div>
+            </div>
+
+            <div class="campo">
+              <label for="p-pregunta">Tu pregunta</label>
+              <textarea id="p-pregunta" name="pregunta" rows="4" maxlength="400" required aria-describedby="p-pregunta-ayuda p-pregunta-error" placeholder="Eso que te preguntas a las dos de la mañana"></textarea>
+              <p class="ayuda" id="p-pregunta-ayuda"><span id="p-contador">0</span> / 400</p>
+              <p class="error" id="p-pregunta-error"></p>
+            </div>
+
+            <div class="campo campo-check">
+              <input type="checkbox" id="p-autorizo" name="autorizo" required aria-describedby="p-autorizo-error">
+              <label for="p-autorizo">Autorizo que mi pregunta se lea en un episodio (sin apellidos) y acepto la <a href="#faq">política de privacidad</a>.</label>
+              <p class="error" id="p-autorizo-error"></p>
+            </div>
+
+            <button class="boton" type="submit">Enviar mi pregunta</button>
+          </form>
+
+          <div class="confirmacion" id="ok-pregunta" tabindex="-1" hidden>
+            <p class="confirmacion-titulo">Pregunta recibida.</p>
+            <p>Ya está en el cuaderno. Si la leemos en un episodio, lo contaré en la carta de los domingos.</p>
+            <button class="enlace-subrayado" type="button" id="otra-pregunta">Enviar otra pregunta</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 9. LO QUE NOS DECÍS ================= -->
+    <section class="testimonios" id="testimonios" aria-labelledby="titulo-testimonios">
+      <h2 id="titulo-testimonios" class="titulo-seccion revelar">Lo que nos decís</h2>
+      <div class="testimonios-lista">
+        <figure class="testimonio t1 revelar"><blockquote>«Me hizo pensar en algo que llevaba meses evitando.»</blockquote><figcaption>Marta, 27</figcaption></figure>
+        <figure class="testimonio t2 revelar"><blockquote>«Lo escucho andando, sin prisa, como quien llama a una amiga.»</blockquote><figcaption>Claudia, 30</figcaption></figure>
+        <figure class="testimonio t3 revelar"><blockquote>«Por fin alguien que pregunta en vez de dar consejos.»</blockquote><figcaption>Julia, 29</figcaption></figure>
+        <figure class="testimonio t4 revelar"><blockquote>«Tengo 44 y me he sentido igual de dentro. Esto no va de edades.»</blockquote><figcaption>Rocío, 44</figcaption></figure>
+        <figure class="testimonio t5 revelar"><blockquote>«Terminé el episodio y le mandé un audio a mi hermana.»</blockquote><figcaption>Inés, 25</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ================= 10. CARTA DE LOS DOMINGOS ================= -->
+    <section class="carta" id="carta" aria-labelledby="titulo-carta">
+      <div class="carta-texto">
+        <h2 id="titulo-carta" class="titulo-grande revelar">La carta de los domingos</h2>
+        <p class="revelar">Un email corto cada domingo con el episodio de la semana, una pregunta para pensarte y alguna recomendación que me haya salvado la semana.</p>
+        <p class="carta-sin revelar">Sin spam.<br>Sin lecciones.</p>
+      </div>
+
+      <div class="carta-form">
+        <form id="form-carta" class="formulario revelar" novalidate>
+          <div class="campo">
+            <label for="c-email">Tu email</label>
+            <div class="carta-linea">
+              <input type="email" id="c-email" name="email" autocomplete="email" required placeholder="nombre@correo.com" aria-describedby="c-email-error">
+              <button class="boton boton-oscuro" type="submit">Quiero la carta</button>
+            </div>
+            <p class="error" id="c-email-error"></p>
+          </div>
+        </form>
+        <div class="confirmacion" id="ok-carta" tabindex="-1" hidden>
+          <p class="confirmacion-titulo">Hecho.</p>
+          <p>Te he mandado un email para confirmar la suscripción. Mira también en promociones, por si acaso.</p>
+        </div>
+        <p class="carta-despedida mano revelar">Nos vemos los domingos.</p>
+      </div>
+    </section>
+
+    <!-- ================= 11. UNA PREGUNTA ================= -->
+    <section class="una-pregunta" id="una-pregunta" aria-labelledby="titulo-una-pregunta">
+      <p class="una-pregunta-etiqueta revelar"><span id="titulo-una-pregunta">Una pregunta</span> <span id="una-pregunta-fecha" class="una-pregunta-fecha"></span></p>
+      <p class="una-pregunta-texto revelar" id="una-pregunta-texto"></p>
+      <div class="una-pregunta-acciones revelar">
+        <button class="enlace-subrayado" type="button" id="descargar-pregunta">Descargar para redes</button>
+        <button class="enlace-subrayado" type="button" id="copiar-pregunta">Copiar la pregunta</button>
+        <p class="aviso" id="aviso-pregunta" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ================= 12. FAQ ================= -->
+    <section class="faq" id="faq" aria-labelledby="titulo-faq">
+      <h2 id="titulo-faq" class="titulo-seccion revelar">Preguntas frecuentes</h2>
+      <div class="faq-lista revelar">
+        <details>
+          <summary>¿Dónde puedo escuchar EN ESENCIA?</summary>
+          <p>En Spotify, Apple Podcasts y YouTube. El último episodio también lo tienes aquí mismo, más arriba.</p>
+        </details>
+        <details>
+          <summary>¿Cada cuánto sale un episodio?</summary>
+          <p>Cada semana, el domingo por la mañana. Llega a la vez que la carta.</p>
+        </details>
+        <details>
+          <summary>¿Puedo mandar una pregunta?</summary>
+          <p>Claro. Usa el formulario de «¿Tienes una pregunta?». No hace falta que pongas tu nombre. Si la leemos en un episodio, nunca diremos tus apellidos.</p>
+        </details>
+        <details>
+          <summary>¿Puedo proponer un invitado?</summary>
+          <p>Sí, y me encanta que lo hagas. Escribe a <a href="mailto:hola@enesenciapodcast.com">hola@enesenciapodcast.com</a> y cuéntame quién es y por qué crees que tiene algo que contar.</p>
+        </details>
+        <details>
+          <summary>¿Puedo participar en el podcast?</summary>
+          <p>Puede. No busco expertas, busco personas con una historia que todavía se está escribiendo. Escríbeme contándome la tuya en pocas líneas.</p>
+        </details>
+        <details>
+          <summary>¿Qué es la Carta de los Domingos?</summary>
+          <p>Un email corto cada domingo con el episodio de la semana, una pregunta para pensarte y alguna recomendación. Te puedes dar de baja con un clic cuando quieras.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= 13. FOOTER ================= -->
+  <footer class="pie">
+    <div class="pie-arriba">
+      <div>
+        <p class="pie-marca">EN ESENCIA</p>
+        <p class="pie-tagline">Adultas en proceso.<br>Sin filtros.</p>
+      </div>
+      <nav aria-label="Redes y contacto">
+        <ul class="pie-enlaces">
+          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Spotify</a></li>
+          <li><a href="#" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="mailto:hola@enesenciapodcast.com">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <p class="pie-cierre">NO VAS TARDE.</p>
+
+    <div class="pie-legal">
+      <span>© <span id="anio"></span> EN ESENCIA</span>
+      <a href="#">Aviso legal</a>
+      <a href="#">Privacidad</a>
+      <a href="#">Cookies</a>
+    </div>
+  </footer>
+
+  <script src="js/contenido.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

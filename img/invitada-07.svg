@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+<defs><filter id="g" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .22"/></feComponentTransfer></filter></defs>
+<rect width="800" height="1000" fill="#DCD6CB"/><rect x="54" y="81" width="250" height="365" fill="#fff" opacity=".13"/>
+<path d="M67 1000 C77 664 177 604 327 599 C477 604 577 664 587 1000Z" fill="#2F2C29"/>
+<rect x="289" y="504" width="76" height="110" fill="#B09A80"/>
+<ellipse cx="327" cy="434" rx="108" ry="132" fill="#B09A80"/>
+<path d="M207 474 C189 274 465 259 449 464 C425 374 239 344 207 474Z" fill="#2F2C29" opacity=".92"/>
+<rect width="800" height="1000" filter="url(#g)"/>
+</svg>
