@@ -151,7 +151,7 @@
   const aTiempo = s => `${Math.floor(s / 60)}:${dosCifras(Math.floor(s % 60))}`;
 
   const ultimo = datos.episodios[0];
-  if (ultimo) {
+  if (ultimo && $("#ultimo")) {
     $("#ultimo-numero").textContent = dosCifras(ultimo.numero);
     const img = $("#ultimo-img");
     img.src = ultimo.foto;
@@ -168,6 +168,7 @@
   }
 
   const btnPlay = $("#btn-play");
+  if (btnPlay) {
   const posicion = $("#posicion");
   const tActual = $("#t-actual");
   const total = ultimo ? aSegundos(ultimo.duracion) : 0;
@@ -198,11 +199,13 @@
   btnPlay.addEventListener("click", () => (sonando ? pausar() : reproducir()));
   posicion.addEventListener("input", pintarPosicion);
   pintarPosicion();
+  }
 
   /* =========================================================
      4. ARCHIVO DE EPISODIOS
      ========================================================= */
   const lista = $("#archivo-lista");
+  if (lista) {
   lista.innerHTML = datos.episodios.map((ep, i) => {
     const giro = [-3, 2.5, -1.5, 3.5, -2.5, 1.5][i % 6];
     const enlace = (ep.enlaces && ep.enlaces.spotify) || "#";
@@ -232,6 +235,7 @@
   if (window.matchMedia("(hover: none)").matches) {
     $("#archivo-intro").textContent = "Un archivo de conversaciones. Debajo de cada una, una frase que se quedó.";
   }
+  }
 
   /* =========================================================
      5. POLAROIDS
@@ -242,7 +246,7 @@
     subrayado: '<svg class="marca-mano dibujo" viewBox="0 0 120 12" preserveAspectRatio="none" style="width:70%;left:12px;bottom:10px;height:10px"><path pathLength="1" d="M2 7 C 30 3, 70 9, 118 5"/></svg>'
   };
   const tablero = $("#tablero");
-  tablero.innerHTML = datos.personas.map(p => `
+  if (tablero) tablero.innerHTML = datos.personas.map(p => `
     <li class="polaroid revelar" style="--r:${p.giro}deg" data-velocidad="${p.velocidad || 0}">
       <figure>
         <img src="${escapar(p.foto)}" alt="Polaroid de ${escapar(p.nombre)}" loading="lazy" width="800" height="1000">
@@ -250,11 +254,11 @@
       </figure>
       ${p.marca ? marcas[p.marca] : ""}
     </li>`).join("");
-  const polaroids = $$(".polaroid", tablero);
+  const polaroids = tablero ? $$(".polaroid", tablero) : [];
   const esMovil = () => window.matchMedia("(max-width: 760px)").matches;
 
   function moverPolaroids() {
-    if (reducirMovimiento || esMovil()) return;
+    if (!tablero || reducirMovimiento || esMovil()) return;
     const rect = tablero.getBoundingClientRect();
     if (rect.bottom < 0 || rect.top > window.innerHeight) return;
     const centro = rect.top + rect.height / 2 - window.innerHeight / 2;
@@ -264,13 +268,65 @@
   /* =========================================================
      8. PREGUNTAS DE OYENTES
      ========================================================= */
-  $("#preguntas-lista").innerHTML = datos.preguntasOyentes.map(q => `
+  const listaPreguntas = $("#preguntas-lista");
+  if (listaPreguntas) listaPreguntas.innerHTML = datos.preguntasOyentes.map(q => `
     <li class="pregunta-oyente revelar">
       <blockquote>«${escapar(q.texto)}»</blockquote>
       <p><span>${escapar(q.autora)}</span>
-        ${q.episodio ? `<a href="#episodios">Respondida en el episodio ${dosCifras(q.episodio)}</a>` : "<span>Todavía sin respuesta</span>"}
+        ${q.episodio ? `<a href="#episodios">Respondida en el episodio ${dosCifras(q.episodio)}</a>` : `<span>${escapar(q.estado || "Todavía sin respuesta")}</span>`}
       </p>
     </li>`).join("");
+
+  /* =========================================================
+     FORMULARIOS DE TALLY
+     Si hay un formulario de Tally en contenido.js (formularios.carta /
+     formularios.pregunta), se incrusta en lugar del formulario de la web.
+     Si está vacío, se muestra un aviso con el email, para no recoger datos
+     que no se guardan en ningún sitio.
+     ========================================================= */
+  const formularios = datos.formularios || {};
+  const idTally = v => {
+    const t = String(v || "").trim();
+    if (!t) return "";
+    const m = t.match(/tally\.so\/(?:r|embed|forms)\/([A-Za-z0-9]+)/);
+    return m ? m[1] : (/^[A-Za-z0-9]+$/.test(t) ? t : "");
+  };
+  let hayTally = false;
+  function sustituirFormulario(formSel, okSel, valor, titulo) {
+    const form = $(formSel);
+    if (!form) return false;
+    const id = idTally(valor);
+    const caja = document.createElement("div");
+    caja.className = "formulario-externo revelar";
+    if (id) {
+      hayTally = true;
+      const marco = document.createElement("iframe");
+      marco.dataset.tallySrc = `https://tally.so/embed/${id}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`;
+      marco.setAttribute("loading", "lazy");
+      marco.setAttribute("width", "100%");
+      marco.setAttribute("height", "260");
+      marco.setAttribute("frameborder", "0");
+      marco.setAttribute("title", titulo);
+      marco.style.border = "0";
+      caja.appendChild(marco);
+    } else {
+      const correo = datos.contacto || "enesenciapodcast@hotmail.com";
+      caja.innerHTML = `<p class="formulario-pendiente">El formulario se activa muy pronto. Mientras tanto, escríbeme a <a href="mailto:${escapar(correo)}">${escapar(correo)}</a>.</p>`;
+    }
+    form.replaceWith(caja);
+    const ok = $(okSel);
+    if (ok) ok.remove();
+    return true;
+  }
+  sustituirFormulario("#form-pregunta", "#ok-pregunta", formularios.pregunta, "Envía tu pregunta a EN ESENCIA");
+  sustituirFormulario("#form-carta", "#ok-carta", formularios.carta, "Avísame del estreno de EN ESENCIA");
+  if (hayTally) {
+    const s = document.createElement("script");
+    s.src = "https://tally.so/widgets/embed.js";
+    s.async = true;
+    s.onload = () => window.Tally && window.Tally.loadEmbeds();
+    document.body.appendChild(s);
+  }
 
   /* =========================================================
      FORMULARIOS · validación sin librerías
@@ -303,8 +359,9 @@
     });
   }
 
-  // Formulario de preguntas
+  // Formulario de preguntas (solo si sigue el de la web)
   const formPregunta = $("#form-pregunta");
+  if (formPregunta) {
   const okPregunta = $("#ok-pregunta");
   const textoPregunta = $("#p-pregunta");
   const contador = $("#p-contador");
@@ -334,11 +391,12 @@
     formPregunta.hidden = false;
     textoPregunta.focus();
   });
+  }
 
   // Carta de los domingos
   const formCarta = $("#form-carta");
   const okCarta = $("#ok-carta");
-  prepararFormulario(formCarta, {
+  if (formCarta) prepararFormulario(formCarta, {
     "c-email": c => {
       const v = c.value.trim();
       if (!v) return "Escribe tu email para recibir la carta.";
@@ -354,6 +412,7 @@
      11. UNA PREGUNTA · también exportable para redes
      ========================================================= */
   const semana = datos.preguntaSemana || {};
+  if ($("#una-pregunta")) {
   $("#una-pregunta-texto").textContent = semana.texto || "";
   if (semana.fecha) {
     const [a, m, d] = semana.fecha.split("-").map(Number);
@@ -442,6 +501,7 @@
     enlace.remove();
     avisar("Imagen descargada (1080 × 1350).");
   });
+  }
 
   /* =========================================================
      APARICIONES AL HACER SCROLL

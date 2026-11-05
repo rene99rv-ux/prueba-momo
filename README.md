@@ -1,6 +1,10 @@
 # EN ESENCIA · Web oficial
 
-Adultas en proceso. Sin filtros.
+Adultas en prácticas. Sin filtros.
+
+> **Ahora mismo: versión de prelanzamiento («Muy pronto»).** Sin episodios, invitadas ni testimonios.
+> Al lanzar, vuelve a añadir en `index.html` los bloques 3, 4, 5 y 9 (están en la copia de la versión completa)
+> y rellena `episodios` en `js/contenido.js`. `main.js` funciona con o sin esos bloques.
 
 ## Estructura
 
